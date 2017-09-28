@@ -1,0 +1,217 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/tower_defense_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/Grid.gd" type="Script" id=3]
+[ext_resource path="res://scenes/path.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=5]
+[ext_resource path="res://sprites/PNG/Default size/towerDefense_ui_1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/PNG/Default size/towerDefense_tile018.png" type="Texture" id=7]
+[ext_resource path="res://scripts/gold_label.gd" type="Script" id=8]
+[ext_resource path="res://scripts/finish_line.gd" type="Script" id=9]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = Vector2Array( 435, 80, -30, 80, -30, 75, 440, 75, 440, 375, 435, 370, 310, 375, 305, 370, 305, 505, 310, 505 )
+polygons = [ IntArray( 0, 1, 2, 3 ), IntArray( 0, 3, 4, 5 ), IntArray( 5, 4, 6, 7 ), IntArray( 8, 7, 6, 9 ) ]
+outlines = [ Vector2Array( -30, 80, -30, 75, 440, 75, 440, 375, 310, 375, 310, 505, 305, 505, 305, 370, 435, 370, 435, 80 ) ]
+
+[sub_resource type="NavigationPolygon" id=2]
+
+vertices = Vector2Array( 290, 375, 290, 525, 285, 525, 285, 370, 415, 370, 420, 375, 420, 115, 415, 120, -30, 115, -30, 120 )
+polygons = [ IntArray( 0, 1, 2, 3 ), IntArray( 0, 3, 4, 5 ), IntArray( 6, 5, 4, 7 ), IntArray( 8, 6, 7, 9 ) ]
+outlines = [ Vector2Array( -30, 115, -30, 120, 415, 120, 415, 370, 285, 370, 285, 525, 290, 525, 290, 375, 420, 375, 420, 115 ) ]
+
+[sub_resource type="NavigationPolygon" id=3]
+
+vertices = Vector2Array( -30.9025, 117.292, -30.9025, 112.292, 399.098, 112.292, 394.098, 117.292, 399.098, 332.292, 394.098, 327.292, 269.098, 332.292, 264.098, 327.292, 264.098, 502.292, 269.098, 502.292 )
+polygons = [ IntArray( 0, 1, 2, 3 ), IntArray( 3, 2, 4, 5 ), IntArray( 5, 4, 6, 7 ), IntArray( 8, 7, 6, 9 ) ]
+outlines = [ Vector2Array( -30.9025, 112.292, 399.098, 112.292, 399.098, 332.292, 269.098, 332.292, 269.098, 502.292, 264.098, 502.292, 264.098, 327.292, 394.098, 327.292, 394.098, 117.292, -30.9025, 117.292 ) ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 30, 5 )
+
+[node name="main" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="map" type="TileMap" parent="."]
+
+z/z = -10
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65536, 10, -65535, 10, -65534, 10, -65533, 10, -65532, 10, -65531, 10, -65530, 10, -65529, 10, -65528, 10, -65527, 10, -65526, 10, 65535, 10, 0, 10, 1, 10, 2, 10, 3, 10, 4, 10, 5, 10, 6, 10, 7, 10, 8, 10, 9, 10, 131071, 10, 65536, 8, 65537, 8, 65538, 8, 65539, 8, 65540, 8, 65541, 8, 65542, 8, 65543, 10, 65544, 10, 65545, 10, 196607, 10, 131072, 10, 131073, 10, 131074, 10, 131075, 10, 131076, 10, 131077, 10, 131078, 8, 131079, 10, 131080, 10, 131081, 10, 262143, 10, 196608, 10, 196609, 10, 196610, 10, 196611, 10, 196612, 10, 196613, 10, 196614, 8, 196615, 10, 196616, 10, 196617, 10, 327679, 10, 262144, 10, 262145, 10, 262146, 10, 262147, 10, 262148, 10, 262149, 10, 262150, 8, 262151, 10, 262152, 10, 262153, 10, 393215, 10, 327680, 10, 327681, 10, 327682, 10, 327683, 10, 327684, 8, 327685, 8, 327686, 8, 327687, 10, 327688, 10, 327689, 10, 458751, 10, 393216, 10, 393217, 10, 393218, 10, 393219, 10, 393220, 8, 393221, 10, 393222, 10, 393223, 10, 393224, 10, 393225, 10, 524287, 10, 458752, 10, 458753, 10, 458754, 10, 458755, 10, 458756, 8, 458757, 10, 458758, 10, 458759, 10, 458760, 10, 458761, 10, 589823, 10, 524288, 10, 524289, 10, 524290, 10, 524291, 10, 524292, 10, 524293, 10, 524294, 10, 524295, 10, 524296, 10, 524297, 10, 524298, 10 )
+script/script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="path" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+
+[node name="nav_poly" parent="path"]
+
+navpoly = SubResource( 1 )
+
+[node name="start_pos" parent="path"]
+
+transform/pos = Vector2( -30, 75 )
+
+[node name="end_pos" parent="path"]
+
+transform/pos = Vector2( 310, 505 )
+
+[node name="path2" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 0.902496, 2.70751 )
+
+[node name="nav_poly" parent="path2"]
+
+transform/pos = Vector2( -0.902496, -22.7075 )
+navpoly = SubResource( 2 )
+
+[node name="start_pos" parent="path2"]
+
+transform/pos = Vector2( -30.9025, 92.2925 )
+
+[node name="end_pos" parent="path2"]
+
+transform/pos = Vector2( 289.098, 502.292 )
+
+[node name="path3" parent="." instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 0.902496, 2.70751 )
+
+[node name="nav_poly" parent="path3"]
+
+navpoly = SubResource( 3 )
+
+[node name="start_pos" parent="path3"]
+
+transform/pos = Vector2( -30.9025, 112.292 )
+
+[node name="end_pos" parent="path3"]
+
+transform/pos = Vector2( 269.098, 502.292 )
+
+[node name="ui" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 638.0
+margin/top = 0.0
+margin/right = 720.0
+margin/bottom = 479.0
+script/script = ExtResource( 5 )
+
+[node name="make_cannon_bt" type="Button" parent="ui"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 1.0
+margin/right = 80.0
+margin/bottom = 71.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 6 )
+flat = true
+
+[node name="start_wave_bt" type="Button" parent="ui"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 410.0
+margin/right = 83.0
+margin/bottom = 480.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+icon = ExtResource( 7 )
+flat = true
+
+[node name="gold_label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 12.0
+margin/top = 9.0
+margin/right = 79.0
+margin/bottom = 23.0
+text = "Dinheiros: 0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 8 )
+
+[node name="hp_label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 166.0
+margin/top = 9.0
+margin/right = 233.0
+margin/bottom = 23.0
+text = "HP: 20 /20"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 8 )
+
+[node name="finish_line" type="Area2D" parent="."]
+
+transform/pos = Vector2( 250, 510 )
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 40, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finish_line"]
+
+transform/pos = Vector2( 40, 0 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="pressed" from="ui/make_cannon_bt" to="ui" method="_on_make_cannon_bt_pressed"]
+
+[connection signal="pressed" from="ui/start_wave_bt" to="ui" method="_on_start_wave_bt_pressed"]
+
+
+[editable path="path"]
+[editable path="path2"]
+[editable path="path3"]

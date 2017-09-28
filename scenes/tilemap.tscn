@@ -1,0 +1,166 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://sprites/basictiles.png" type="Texture" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="wall1" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="wall2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="wall3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 0, 16, 16 )
+
+[node name="wall4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 64, 0, 16, 16 )
+
+[node name="wall5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 112, 0, 16, 16 )
+
+[node name="wooden_floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="red_floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="sand" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 32, 16, 16, 16 )
+
+[node name="green_floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 96, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 16, 16, 16 )
+
+[node name="grass" type="Sprite" parent="."]
+
+transform/pos = Vector2( 64, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 64, 16, 16, 16 )
+
+[node name="grass2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 48, 32, 16, 16 )
+
+[node name="grass3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 80, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 128, 16, 16 )
+
+[node name="grass4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 96, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 128, 16, 16 )
+
+[node name="water" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 80, 16, 16, 16 )
+
+[node name="brick" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 32 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 96, 16, 16, 16 )
+
+[node name="rock" type="Sprite" parent="."]
+
+transform/pos = Vector2( 112, 0 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 112, 16, 16, 16 )
+
+[node name="wooden_floor2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 32, 16, 16 )
+
+[node name="carpet" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="sand2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 32, 32, 16, 16 )
+
+[node name="rock_path" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 32 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 16, 144, 16, 16 )
+
+

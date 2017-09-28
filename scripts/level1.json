@@ -1,0 +1,89 @@
+{
+	"waves" : [
+		{
+			"time": 0,
+			"path1": [
+				{
+					"time": 0,
+					"enemies": [
+						{"enemy" : "simple_enemy"},
+					]
+				},
+				{
+					"time": 2,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+				{
+					"time": 4,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+				{
+					"time": 6,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				}
+			],
+			"path2": [
+				{
+					"time": 0,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					],
+					
+				},
+				{
+					"time": 2,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					],
+					
+				},
+				{
+					"time": 4,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					],
+					
+				},
+				{
+					"time": 6,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					],
+					
+				},
+			],
+			"path3": [
+				{
+					"time": 0,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+				{
+					"time": 2,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+				{
+					"time": 4,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+				{
+					"time": 6,
+					"enemies": [
+						{"enemy": "simple_enemy"},
+					]
+				},
+			],
+		}
+	]
+}

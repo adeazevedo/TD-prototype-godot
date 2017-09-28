@@ -1,0 +1,143 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/simple_enemy.gd" type="Script" id=1]
+[ext_resource path="res://sprites/PNG/Default size/towerDefense_tile247.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.91868, 14.111 )
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "die"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0.5 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "free_node"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "hit"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:modulate")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.929688, 0.170685, 0.170685, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sprite:transform/scale")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[node name="simple_enemy" type="Area2D"]
+
+transform/scale = Vector2( 0.75, 0.75 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/die = SubResource( 2 )
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "idle"
+
+[node name="visibility" type="VisibilityNotifier2D" parent="."]
+
+rect = Rect2( -8, -15, 16, 30 )
+
+
